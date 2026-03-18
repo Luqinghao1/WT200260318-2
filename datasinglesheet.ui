@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DataSingleSheet</class>
+ <widget class="QWidget" name="DataSingleSheet">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Data Sheet</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 强制白色背景 */
+QWidget {
+    background-color: #FFFFFF;
+}
+
+QTableView {
+    background-color: #FFFFFF;
+    gridline-color: #E8E8E8; /* 更淡的网格线 */
+    selection-background-color: #E6F7FF; /* 选中行：极淡蓝 */
+    selection-color: #000000;
+    border: none;
+    outline: none;
+}
+
+QHeaderView::section {
+    background-color: #FAFAFA; /* 表头微灰 */
+    color: #666666;
+    padding: 6px;
+    border: none;
+    border-right: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
+    font-weight: bold;
+}
+
+QTableCornerButton::section {
+    background-color: #FAFAFA;
+    border: none;
+    border-right: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QTableView" name="dataTableView">
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectItems</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

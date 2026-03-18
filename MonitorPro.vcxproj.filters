@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataEditorWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modelmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modelwidget1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modelwidget2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modelwidget3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monitorbtn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monitorwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monitostatew.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="navbtn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="newprojectdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plottingwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plotwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="settingswidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="dataeditorwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="modelmanager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="modelwidget1.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="modelwidget2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="modelwidget3.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="monitorbtn.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="monitorwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="monitostatew.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="navbtn.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="newprojectdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="plottingwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="settingswidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="dataeditorwidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="modelwidget1.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="modelwidget2.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="modelwidget3.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="monitorbtn.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="monitorwidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="monitostatew.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="navbtn.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="newprojectdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="plottingwidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="settingswidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\A1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\A2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\A3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\A4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\A5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\A6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoBtn1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoBtn2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoLine.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\AutoTop7.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon7.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Mon8.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\MonArrow.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\MonArrow2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\MonBtnRec.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\MonRect.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\MonTop1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\MonitorLine.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav7.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\Nav8.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\NavigationBar.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParCenterRec.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParLableRec.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParLine.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTag.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTop7.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParTopRec.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\ParamterTopRec.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\X1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\X2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\X3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\X4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\X5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\background.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\btn1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\btn2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\btn3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\btn4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\btn5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\btn8.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\line.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resource\navrec.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resource.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+</Project>

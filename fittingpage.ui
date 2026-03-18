@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FittingPage</class>
+ <widget class="QWidget" name="FittingPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Fitting Page Manager</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置：白色背景，黑色字体 */
+QWidget {
+    background-color: #ffffff;
+    color: #333333;
+    font-family: &quot;Microsoft YaHei&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 9pt;
+}
+
+/* 顶部工具栏：纯白背景，底部细灰线 */
+QFrame#frameToolbar {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 按钮样式优化 */
+QPushButton {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: #333333;
+}
+QPushButton:hover {
+    background-color: #f5f5f5;
+    border-color: #0078d7;
+    color: #0078d7;
+}
+QPushButton:pressed {
+    background-color: #e0e0e0;
+}
+
+/* Tab控件整体背景设为白色，消除灰色死角 */
+QTabWidget {
+    background-color: #ffffff;
+}
+
+/* Tab页签容器背景设为白色 */
+QTabWidget::pane {
+    border: none;
+    background: #ffffff;
+}
+
+/* Tab条背景设为白色 (解决标题右侧不是白色的问题) */
+QTabBar {
+    background: #ffffff;
+}
+
+/* 具体Tab页签样式 */
+QTabBar::tab {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    padding: 6px 15px;
+    margin-right: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: #666666;
+    min-width: 80px;
+}
+QTabBar::tab:selected {
+    background: #ffffff;
+    color: #0078d7;
+    border-bottom: 2px solid #0078d7;
+    /* 选中时底部高亮 */
+    font-weight: bold;
+}
+QTabBar::tab:hover {
+    background: #ffffff;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frameToolbar">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnNewAnalysis">
+        <property name="text">
+         <string>+ 新建分析</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRenameAnalysis">
+        <property name="text">
+         <string>重命名</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDeleteAnalysis">
+        <property name="text">
+         <string>删除当前页</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>-1</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
