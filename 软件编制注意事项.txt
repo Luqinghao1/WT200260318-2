@@ -1,0 +1,17 @@
+给出的代码文件的采用qt6软件编制的一款试井解释软件，请先遍历一下代码，了解软件的功能和交互逻辑。
+
+1、软件中按钮、输入类控件 (QLineEdit, QTextEdit, QPlainTextEdit)、数值调节框 (QSpinBox, QDoubleSpinBox)、下拉选择框 (QComboBox)、标签页 (QTabWidget, QTabBar)、分组框 (QGroupBox)、列表与树 (QListWidget, QTreeWidget, QTableView)、滚动条 (QScrollBar)、菜单栏与工具栏 (QMenuBar, QMenu, QToolBar)、提示与悬停 (QToolTip)的默认样式在main.cpp文件中有规定，除特殊说明外，采用main.cpp文件中规定的默认样式。
+
+2、本软件为中文软件，除特殊情况外，本软件的按钮文字统一采用中文。
+
+3、软件修改时，需要严格按照输入的说明进行修改，不要随意删减内容、改变内容。
+
+4、软件修改完成后，输出完整的代码文件，其中，不要随意改变代码具有的功能，界面文件不要随意修改。
+
+5、所有的代码文件，每一步操作、每一个函数的功能都需要添加详细的中文注释。
+
+6、代码文件开头部分（包括h、cpp文件），详细列出本代码文件的作用（是本代码文件的作用、功能有哪些，不是本次修改了什么）。
+
+7、
+
+

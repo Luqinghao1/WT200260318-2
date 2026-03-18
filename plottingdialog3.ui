@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlottingDialog3</class>
+ <widget class="QDialog" name="PlottingDialog3">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>双对数曲线设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QDialog, QWidget {
+    background-color: white;
+    color: #333333;
+    font-family: &quot;Microsoft YaHei&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 10pt;
+}
+QLabel { color: #333333; }
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox {
+    color: #333333;
+    background-color: #fdfdfd;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    padding: 4px;
+    min-height: 20px;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus { border: 1px solid #0078d7; }
+QGroupBox {
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 10px;
+    padding: 0 5px;
+    color: #0078d7;
+    font-weight: bold;
+}
+QPushButton {
+    color: #333333;
+    background-color: #f0f0f0;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    padding: 6px 16px;
+}
+QPushButton:hover { background-color: #e0e0e0; border-color: #0078d7; }
+QCheckBox { color: #333333; spacing: 8px; }
+QRadioButton { color: #333333; spacing: 8px; }
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_Main">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox_Data">
+     <property name="title">
+      <string>数据设置</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_Data">
+      <property name="verticalSpacing">
+       <number>12</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_Name">
+        <property name="text">
+         <string>曲线名称:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_Name"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="check_ShowSource">
+        <property name="text">
+         <string>显示数据来源</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_File">
+        <property name="text">
+         <string>数据文件:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="comboFileSelect"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_Time">
+        <property name="text">
+         <string>时间数据:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="comboTime"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_Press">
+        <property name="text">
+         <string>压力数据:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="comboPress"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_Calc">
+     <property name="title">
+      <string>计算设置</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_Calc">
+      <property name="verticalSpacing">
+       <number>12</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_TestType">
+        <property name="text">
+         <string>试井类型:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_Type">
+        <item>
+         <widget class="QRadioButton" name="radioDrawdown">
+          <property name="text">
+           <string>压降试井</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioBuildup">
+          <property name="text">
+           <string>压恢试井</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelPi">
+        <property name="text">
+         <string>初始压力 (MPa):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDoubleSpinBox" name="spinPi">
+        <property name="decimals">
+         <number>4</number>
+        </property>
+        <property name="maximum">
+         <double>999999.999900000020862</double>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelL">
+        <property name="text">
+         <string>L-Spacing 因子:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDoubleSpinBox" name="spinL">
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QCheckBox" name="checkSmooth">
+        <property name="text">
+         <string>启用平滑处理</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_Smooth">
+        <item>
+         <widget class="QLabel" name="labelSmoothFactor">
+          <property name="text">
+           <string>平滑因子:</string>
+          </property>
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinSmooth">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_Style">
+     <property name="title">
+      <string>样式设置</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_Style">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_StylePress">
+        <property name="verticalSpacing">
+         <number>8</number>
+        </property>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_TitlePress">
+          <property name="styleSheet">
+           <string notr="true">font-weight: bold;
+color: #0078d7;</string>
+          </property>
+          <property name="text">
+           <string>压差曲线样式</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_PressShape">
+          <property name="text">
+           <string>点形状:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboPressShape"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_PressPointColor">
+          <property name="text">
+           <string>点颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="comboPressPointColor"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_PressLine">
+          <property name="text">
+           <string>线类型:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="comboPressLine"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_PressLineColor">
+          <property name="text">
+           <string>线颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="comboPressLineColor"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_PressLineWidth">
+          <property name="text">
+           <string>线宽度:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QSpinBox" name="spinPressLineWidth">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line_Split">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_StyleDeriv">
+        <property name="verticalSpacing">
+         <number>8</number>
+        </property>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_TitleDeriv">
+          <property name="styleSheet">
+           <string notr="true">font-weight: bold;
+color: #0078d7;</string>
+          </property>
+          <property name="text">
+           <string>导数曲线样式</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_DerivShape">
+          <property name="text">
+           <string>点形状:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboDerivShape"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_DerivPointColor">
+          <property name="text">
+           <string>点颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="comboDerivPointColor"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_DerivLine">
+          <property name="text">
+           <string>线类型:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="comboDerivLine"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_DerivLineColor">
+          <property name="text">
+           <string>线颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="comboDerivLineColor"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_DerivLineWidth">
+          <property name="text">
+           <string>线宽度:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QSpinBox" name="spinDerivLineWidth">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="check_NewWindow">
+     <property name="text">
+      <string>在新建窗口中显示</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>PlottingDialog3</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>PlottingDialog3</receiver>
+   <slot>reject()</slot>
+  </connection>
+ </connections>
+</ui>

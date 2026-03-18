@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Resource/Nav8.png</file>
+        <file>Resource/background.png</file>
+        <file>Resource/PRO1.png</file>
+        <file>Resource/PRO2.png</file>
+        <file>Resource/PRO3.png</file>
+        <file>Resource/PRO4.png</file>
+        <file>Resource/PWT.png</file>
+        <file>Resource/PWT.ico</file>
+        <file>Resource/X0.png</file>
+        <file>Resource/X1.png</file>
+        <file>Resource/X2.png</file>
+        <file>Resource/X3.png</file>
+        <file>Resource/X4.png</file>
+        <file>Resource/X5.png</file>
+        <file>Resource/X6.png</file>
+        <file>Resource/jiazai1.png</file>
+        <file>Resource/jiazai3.png</file>
+        <file>Resource/jiazai5.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsWidget</class>
+ <widget class="QWidget" name="SettingsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>系统设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局字体与背景 */
+QWidget {
+    font-family: &quot;Microsoft YaHei UI&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    background-color: #f5f7fa; /* 浅灰背景 */
+    color: #333333;
+}
+
+/* 左侧导航栏 */
+QListWidget#navTupleList {
+    background-color: #ffffff;
+    border: none;
+    border-right: 1px solid #e1e4e8;
+    outline: none;
+}
+QListWidget#navTupleList::item {
+    height: 50px;
+    padding-left: 15px;
+    color: #555555;
+    border-left: 4px solid transparent; /* 选中指示条 */
+}
+QListWidget#navTupleList::item:hover {
+    background-color: #f0f4f8;
+    color: #333333;
+}
+QListWidget#navTupleList::item:selected {
+    background-color: #eef6ff;
+    color: #0066cc;
+    border-left: 4px solid #0066cc; /* 选中亮蓝条 */
+    font-weight: bold;
+}
+
+/* 右侧内容区标题栏 */
+QLabel#lblPageTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 2px solid #e1e4e8;
+}
+
+/* 分组框卡片样式 */
+QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    margin-top: 1.5em; /* 为标题留空间 */
+    padding: 15px;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 10px;
+    padding: 0 5px;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+/* 输入控件样式 */
+QLineEdit, QComboBox, QSpinBox {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: #ffffff;
+    selection-background-color: #0066cc;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus {
+    border: 1px solid #0066cc;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+
+/* 按钮样式 */
+QPushButton {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #333333;
+}
+QPushButton:hover {
+    background-color: #f0f0f0;
+    border-color: #bbbbbb;
+}
+QPushButton:pressed {
+    background-color: #e0e0e0;
+}
+
+/* 强调按钮 (应用) */
+QPushButton#btnApply {
+    background-color: #0066cc;
+    color: #ffffff;
+    border: 1px solid #005bb5;
+}
+QPushButton#btnApply:hover {
+    background-color: #0077ee;
+}
+QPushButton#btnApply:pressed {
+    background-color: #0055aa;
+}
+
+/* 危险按钮 (重置) */
+QPushButton#btnRestoreDefaults {
+    color: #cc0000;
+}
+QPushButton#btnRestoreDefaults:hover {
+    background-color: #fff0f0;
+    border-color: #ffcccc;
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+
+   <item>
+    <widget class="QListWidget" name="navTupleList">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
+     </property>
+     <item>
+      <property name="text">
+       <string>通用设置</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/new/prefix1/Resource/Nav1.png</normaloff>:/new/prefix1/Resource/Nav1.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>单位与精度</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/new/prefix1/Resource/Nav2.png</normaloff>:/new/prefix1/Resource/Nav2.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>绘图设置</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/new/prefix1/Resource/Nav3.png</normaloff>:/new/prefix1/Resource/Nav3.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>路径配置</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/new/prefix1/Resource/Nav4.png</normaloff>:/new/prefix1/Resource/Nav4.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>系统与日志</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/new/prefix1/Resource/Nav5.png</normaloff>:/new/prefix1/Resource/Nav5.png</iconset>
+      </property>
+     </item>
+    </widget>
+   </item>
+
+   <item>
+    <layout class="QVBoxLayout" name="rightLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <property name="leftMargin">
+      <number>30</number>
+     </property>
+     <property name="topMargin">
+      <number>20</number>
+     </property>
+     <property name="rightMargin">
+      <number>30</number>
+     </property>
+     <property name="bottomMargin">
+      <number>20</number>
+     </property>
+
+     <item>
+      <widget class="QLabel" name="lblPageTitle">
+       <property name="text">
+        <string>通用设置</string>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QStackedWidget" name="stackedContent">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+
+       <widget class="QWidget" name="pageGeneral">
+        <layout class="QVBoxLayout" name="layoutGeneral">
+         <item>
+          <widget class="QGroupBox" name="grpAppearance">
+           <property name="title">
+            <string>界面外观</string>
+           </property>
+           <layout class="QFormLayout" name="formLayoutGeneral">
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelTheme">
+              <property name="text">
+               <string>界面主题:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cmbTheme">
+              <item>
+               <property name="text">
+                <string>默认浅色 (Light)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>专业深色 (Dark)</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpStartup">
+           <property name="title">
+            <string>启动选项</string>
+           </property>
+           <layout class="QVBoxLayout" name="layoutStartup">
+            <item>
+             <widget class="QCheckBox" name="chkStartFullScreen">
+              <property name="text">
+               <string>启动时自动全屏显示</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chkAutoLoadLastProject">
+              <property name="text">
+               <string>自动打开上次编辑的项目</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacerGeneral">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+
+       <widget class="QWidget" name="pageUnits">
+        <layout class="QVBoxLayout" name="layoutUnits">
+         <item>
+          <widget class="QGroupBox" name="grpUnits">
+           <property name="title">
+            <string>物理量单位</string>
+           </property>
+           <layout class="QGridLayout" name="gridUnits">
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelPressUnit">
+              <property name="text">
+               <string>压力单位 (Pressure):</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cmbPressureUnit"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelRateUnit">
+              <property name="text">
+               <string>产量单位 (Rate):</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="cmbRateUnit"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpPrecision">
+           <property name="title">
+            <string>数值精度</string>
+           </property>
+           <layout class="QHBoxLayout" name="layoutPrecision">
+            <item>
+             <widget class="QLabel" name="labelPrecision">
+              <property name="text">
+               <string>全局小数显示位数:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinPrecision">
+              <property name="minimum">
+               <number>0</number>
+              </property>
+              <property name="maximum">
+               <number>10</number>
+              </property>
+              <property name="value">
+               <number>4</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="spacerPrecision">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacerUnits">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+
+       <widget class="QWidget" name="pagePlot">
+        <layout class="QVBoxLayout" name="layoutPlot">
+         <item>
+          <widget class="QGroupBox" name="grpPlotStyle">
+           <property name="title">
+            <string>默认图表风格</string>
+           </property>
+           <layout class="QFormLayout" name="formPlot">
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelPlotBg">
+              <property name="text">
+               <string>背景风格:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cmbPlotBackground"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelLineWidth">
+              <property name="text">
+               <string>默认曲线线宽:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="spinLineWidth">
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>10</number>
+              </property>
+              <property name="suffix">
+               <string> px</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QCheckBox" name="chkShowGrid">
+              <property name="text">
+               <string>默认显示网格线</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacerPlot">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+
+       <widget class="QWidget" name="pagePaths">
+        <layout class="QVBoxLayout" name="layoutPaths">
+         <item>
+          <widget class="QGroupBox" name="grpDefaultPaths">
+           <property name="title">
+            <string>默认文件位置</string>
+           </property>
+           <layout class="QGridLayout" name="gridPaths">
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="lblDataPath">
+              <property name="text">
+               <string>数据文件路径:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineDataPath"/>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPushButton" name="btnBrowseData">
+              <property name="text">
+               <string>浏览...</string>
+              </property>
+             </widget>
+            </item>
+
+            <item row="1" column="0">
+             <widget class="QLabel" name="lblReportPath">
+              <property name="text">
+               <string>报告输出路径:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineReportPath"/>
+            </item>
+            <item row="1" column="2">
+             <widget class="QPushButton" name="btnBrowseReport">
+              <property name="text">
+               <string>浏览...</string>
+              </property>
+             </widget>
+            </item>
+
+            <item row="2" column="0">
+             <widget class="QLabel" name="lblBackupPath">
+              <property name="text">
+               <string>自动备份路径:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="lineBackupPath"/>
+            </item>
+            <item row="2" column="2">
+             <widget class="QPushButton" name="btnBrowseBackup">
+              <property name="text">
+               <string>浏览...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblPathHint">
+           <property name="styleSheet">
+            <string notr="true">color: #666666; font-style: italic; font-size: 12px;</string>
+           </property>
+           <property name="text">
+            <string>提示: 请确保设置的目录具有读写权限。如果目录不存在，软件将尝试自动创建。</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacerPaths">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+
+       <widget class="QWidget" name="pageSystem">
+        <layout class="QVBoxLayout" name="layoutSystem">
+         <item>
+          <widget class="QGroupBox" name="grpAutoSave">
+           <property name="title">
+            <string>自动保存策略</string>
+           </property>
+           <layout class="QGridLayout" name="gridAutoSave">
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="lblAutoSave">
+              <property name="text">
+               <string>保存间隔:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="spinAutoSave">
+              <property name="suffix">
+               <string> 分钟</string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QCheckBox" name="chkEnableBackup">
+              <property name="text">
+               <string>启用项目自动备份</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="lblMaxBackups">
+              <property name="text">
+               <string>最大备份数量:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="spinMaxBackups">
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpLog">
+           <property name="title">
+            <string>日志管理</string>
+           </property>
+           <layout class="QGridLayout" name="gridLog">
+            <item row="0" column="0">
+             <widget class="QLabel" name="lblLogLevel">
+              <property name="text">
+               <string>日志级别:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="cmbLogLevel"/>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QCheckBox" name="chkCleanupLogs">
+              <property name="text">
+               <string>自动清理过期日志文件</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="lblLogDays">
+              <property name="text">
+               <string>保留天数:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="spinLogDays">
+              <property name="suffix">
+               <string> 天</string>
+              </property>
+              <property name="value">
+               <number>30</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="spacerSystem">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QFrame" name="frameBottom">
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <layout class="QHBoxLayout" name="layoutBottom">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnRestoreDefaults">
+          <property name="text">
+           <string>恢复默认值</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="spacerBottom">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnCancel">
+          <property name="text">
+           <string>取消</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnApply">
+          <property name="text">
+           <string>应用设置</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlottingDialog2</class>
+ <widget class="QDialog" name="PlottingDialog2">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>双坐标图表设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QDialog, QWidget {
+    background-color: white;
+    color: #333333;
+    font-family: &quot;Microsoft YaHei&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 10pt;
+}
+QLabel { color: #333333; }
+QLineEdit, QComboBox, QSpinBox {
+    color: #333333;
+    background-color: #fdfdfd;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    padding: 4px;
+    min-height: 20px;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus { border: 1px solid #0078d7; }
+QGroupBox {
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 10px;
+    padding: 0 5px;
+    color: #0078d7;
+    font-weight: bold;
+}
+QPushButton {
+    color: #333333;
+    background-color: #f0f0f0;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    padding: 6px 16px;
+}
+QPushButton:hover { background-color: #e0e0e0; border-color: #0078d7; }
+QCheckBox {
+    color: #333333;
+    spacing: 8px;
+    margin-top: 5px;
+}
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    background: white;
+}
+QCheckBox::indicator:checked {
+    background-color: #0078d7;
+    border: 1px solid #0078d7;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_Main">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_Name">
+     <item>
+      <widget class="QLabel" name="label_Name">
+       <property name="text">
+        <string>曲线名称:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_Name"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="check_ShowSource">
+     <property name="text">
+      <string>显示数据来源</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_Content">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="groupBox_Press">
+       <property name="title">
+        <string>压力数据设置</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_Press">
+        <property name="verticalSpacing">
+         <number>12</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_PressFile">
+          <property name="text">
+           <string>数据文件:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="combo_PressFile"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_PressX">
+          <property name="text">
+           <string>X轴数据:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="combo_PressX"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_PressY">
+          <property name="text">
+           <string>Y轴数据:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="combo_PressY"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_PressPointShape">
+          <property name="text">
+           <string>点样式:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="combo_PressPointShape"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_PressPointColor">
+          <property name="text">
+           <string>点颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="combo_PressPointColor"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_PressLineStyle">
+          <property name="text">
+           <string>线样式:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QComboBox" name="combo_PressLineStyle"/>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_PressLineColor">
+          <property name="text">
+           <string>线颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QComboBox" name="combo_PressLineColor"/>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_PressLineWidth">
+          <property name="text">
+           <string>线宽度:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QSpinBox" name="spin_PressLineWidth">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_Prod">
+       <property name="title">
+        <string>产量数据设置</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_Prod">
+        <property name="verticalSpacing">
+         <number>12</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_ProdFile">
+          <property name="text">
+           <string>数据文件:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="combo_ProdFile"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_ProdX">
+          <property name="text">
+           <string>X轴数据:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="combo_ProdX"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_ProdY">
+          <property name="text">
+           <string>Y轴数据:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="combo_ProdY"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_ProdType">
+          <property name="text">
+           <string>绘图类型:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="combo_ProdType"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_ProdPointShape">
+          <property name="text">
+           <string>点样式:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="combo_ProdPointShape"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_ProdPointColor">
+          <property name="text">
+           <string>点颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QComboBox" name="combo_ProdPointColor"/>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_ProdLineStyle">
+          <property name="text">
+           <string>线样式:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QComboBox" name="combo_ProdLineStyle"/>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_ProdLineColor">
+          <property name="text">
+           <string>线颜色:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QComboBox" name="combo_ProdLineColor"/>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_ProdLineWidth">
+          <property name="text">
+           <string>线宽度:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QSpinBox" name="spin_ProdLineWidth">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="check_NewWindow">
+     <property name="text">
+      <string>在新建窗口中显示</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>PlottingDialog2</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>PlottingDialog2</receiver>
+   <slot>reject()</slot>
+  </connection>
+ </connections>
+</ui>

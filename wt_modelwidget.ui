@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WT_ModelWidget</class>
+ <widget class="QWidget" name="WT_ModelWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>925</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>压裂水平井复合模型 (01-06)</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置：白底黑字 */
+QWidget {
+        color: #333333;
+        background-color: white;
+        font-family: &quot;Microsoft YaHei&quot;;
+        font-size: 9pt;
+}
+
+/* 分裂器手柄完全透明，去除竖线 */
+QSplitter::handle {
+        background-color: transparent;
+}
+
+/* 分组框样式 */
+QGroupBox {
+        font-weight: bold;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        margin-top: 10px;
+}
+QGroupBox::title {
+        subcontrol-origin: margin;
+        subcontrol-position: top left;
+        left: 10px;
+        padding: 0 3px;
+        color: #333333;
+}
+
+/* 输入框样式 */
+QLineEdit, QComboBox, QTextEdit {
+        background-color: white;
+        color: black;
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        padding: 2px;
+        selection-background-color: #0078d7;
+}
+
+/* 按钮通用样式 */
+QPushButton {
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        background-color: #fcfcfc;
+        color: #333333;
+        padding: 6px 12px;
+        min-height: 20px;
+}
+QPushButton:hover {
+        background-color: #f0f0f0;
+        border-color: #0078d7;
+        color: #0078d7;
+}
+QPushButton:pressed {
+        background-color: #e0e0e0;
+        border-color: #005a9e;
+}
+
+/* 模型选择按钮特殊样式 */
+QPushButton#btnSelectModel {
+        text-align: left;
+        font-weight: bold;
+        padding-left: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #bcbcbc;
+}
+
+/* 标签样式 */
+QLabel {
+        color: #333333;
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="handleWidth">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="leftPanel" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget#leftPanel {
+        background-color: white;
+        border: none; /* 移除右侧边框竖线 */
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnSelectModel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>34</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>当前模型: 未知</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="basicParamGroup">
+         <property name="title">
+          <string>基础参数</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_Base">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_phi">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;孔隙度 φ:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="phiEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_h">
+            <property name="text">
+             <string>厚度 h (m):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="hEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_rw">
+            <property name="text">
+             <string>井筒半径 r&lt;sub&gt;w&lt;/sub&gt; (m):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="rwEdit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_mu">
+            <property name="text">
+             <string>粘度 μ (mPa·s):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="muEdit"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_B">
+            <property name="text">
+             <string>体积系数 B:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="BEdit"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_Ct">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;压缩系数 C&lt;sub&gt;t&lt;/sub&gt; (MPa⁻¹):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="CtEdit"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_q">
+            <property name="text">
+             <string>产量 q (m³/d):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="qEdit"/>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_t">
+            <property name="text">
+             <string>测试时长 (h):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLineEdit" name="tEdit"/>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_points">
+            <property name="text">
+             <string>数据点数:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="pointsEdit">
+            <property name="placeholderText">
+             <string>默认50</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_showPoints">
+            <property name="text">
+             <string>图表显示:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QCheckBox" name="checkShowPoints">
+            <property name="text">
+             <string>显示数据点</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="modelParamGroup">
+         <property name="title">
+          <string>模型参数</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_Model">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_kf">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;内区渗透率 k&lt;span style=&quot; vertical-align:sub;&quot;&gt;f&lt;/span&gt; (mD):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="kfEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_km">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;流度比 M&lt;sub&gt;12&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="kmEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_eta12">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;导压系数比 η&lt;sub&gt;12&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="eta12Edit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_L">
+            <property name="text">
+             <string>水平井长 L (m):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="LEdit"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_Lf">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;裂缝半长 L&lt;sub&gt;f&lt;/sub&gt; (m):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="LfEdit"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_nf">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;裂缝条数 n&lt;sub&gt;f&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="nfEdit"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_rmD">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;复合半径 r&lt;sub&gt;m&lt;/sub&gt; (m):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="rmDEdit"/>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_reD">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;外区半径 r&lt;sub&gt;e&lt;/sub&gt; (m):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLineEdit" name="reDEdit"/>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_omga1">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;内区储容比 ω&lt;sub&gt;1&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="omga1Edit"/>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_omga2">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;外区储容比 ω&lt;sub&gt;2&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QLineEdit" name="omga2Edit"/>
+          </item>
+          <item row="10" column="0">
+           <widget class="QLabel" name="label_remda1">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;内区窜流系数 λ&lt;sub&gt;1&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="QLineEdit" name="remda1Edit"/>
+          </item>
+          <item row="11" column="0">
+           <widget class="QLabel" name="label_remda2">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;外区窜流系数 λ&lt;sub&gt;2&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="1">
+           <widget class="QLineEdit" name="remda2Edit"/>
+          </item>
+          <item row="12" column="0">
+           <widget class="QLabel" name="label_gamaD">
+            <property name="toolTip">
+             <string>渗透率模量</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: blue; font-weight: bold;</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;压敏系数 γ&lt;sub&gt;D&lt;/sub&gt;:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="1">
+           <widget class="QLineEdit" name="gamaDEdit"/>
+          </item>
+          <item row="13" column="0">
+           <widget class="QLabel" name="label_cD">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;井筒储集 C (m³/MPa):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="1">
+           <widget class="QLineEdit" name="cDEdit"/>
+          </item>
+          <item row="14" column="0">
+           <widget class="QLabel" name="label_s">
+            <property name="text">
+             <string>表皮系数 S:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="14" column="1">
+           <widget class="QLineEdit" name="sEdit"/>
+          </item>
+          <item row="15" column="0">
+           <widget class="QLabel" name="label_alpha">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;变井储时间参数 α (h):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="15" column="1">
+           <widget class="QLineEdit" name="alphaEdit"/>
+          </item>
+          <item row="16" column="0">
+           <widget class="QLabel" name="label_cphi">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;变井储压力参数 Cφ (MPa):&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="16" column="1">
+           <widget class="QLineEdit" name="cPhiEdit"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Btns">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="calculateButton">
+           <property name="styleSheet">
+            <string notr="true">background-color: #4CAF50;
+color: white; font-weight: bold; padding: 6px;</string>
+           </property>
+           <property name="text">
+            <string>开始计算</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="resetButton">
+           <property name="text">
+            <string>重置参数</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="rightPanel" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget#rightPanel { background-color: white;
+border: none; }</string>
+      </property>
+      <layout class="QVBoxLayout" name="rightLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTabWidget" name="tabWidget_Right">
+         <property name="styleSheet">
+          <string notr="true">QTabWidget::pane { border: none;
+} /* 去除标签页下方的横线 */
+QTabBar::tab { background: #f0f0f0; color: #333333; padding: 6px 12px; border: none; border-bottom: 2px solid transparent; margin-right: 2px;
+}
+QTabBar::tab:hover { background-color: #e0e0e0; }
+QTabBar::tab:selected { background: white; color: #0078d7; border-bottom: 2px solid #0078d7; font-weight: bold;
+}</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab_Chart">
+          <attribute name="title">
+           <string>图表分析</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_ChartTab">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="ChartWidget" name="chartWidget" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_Data">
+          <attribute name="title">
+           <string>计算数据</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_DataTab">
+           <item>
+            <widget class="QTextEdit" name="resultTextEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnExportDataTab">
+             <property name="text">
+              <string>导出数据 (.csv)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ChartWidget</class>
+   <extends>QWidget</extends>
+   <header>chartwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

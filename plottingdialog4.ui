@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlottingDialog4</class>
+ <widget class="QDialog" name="PlottingDialog4">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>修改曲线设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QDialog, QWidget { background-color: white; color: #333333; font-family: &quot;Microsoft YaHei&quot;; font-size: 10pt; }
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox { border: 1px solid #c0c0c0; border-radius: 4px; padding: 4px; min-height: 20px; }
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus { border: 1px solid #0078d7; }
+QGroupBox { border: 1px solid #e0e0e0; margin-top: 20px; padding-top: 15px; border-radius: 4px; background-color: #fafafa; }
+QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; left: 10px; padding: 0 5px; color: #0078d7; font-weight: bold; }
+QPushButton { background-color: #f0f0f0; border: 1px solid #c0c0c0; border-radius: 4px; padding: 6px 16px; }
+QPushButton:hover { background-color: #e0e0e0; border-color: #0078d7; }
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_Name">
+     <item>
+      <widget class="QLabel" name="label_Name">
+       <property name="text">
+        <string>曲线名称:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_Name"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupData">
+     <property name="title">
+      <string>数据设置</string>
+     </property>
+     <layout class="QVBoxLayout" name="layoutData">
+      <item>
+       <widget class="QStackedWidget" name="stackData">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="pageSingleData">
+         <layout class="QGridLayout" name="gridSingle">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_File1">
+            <property name="text">
+             <string>数据文件:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="comboFile_1"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_X1">
+            <property name="text">
+             <string>X轴数据:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboX_1"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_Y1">
+            <property name="text">
+             <string>Y轴数据:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="comboY_1"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="pageDualData">
+         <layout class="QHBoxLayout" name="hboxDual">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <layout class="QFormLayout" name="formLayout_LeftData">
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="titleP">
+              <property name="text">
+               <string>压力数据</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-weight: bold; color: #555;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="l1"><property name="text"><string>文件:</string></property></widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="comboFile_1_Dup"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="l2"><property name="text"><string>X轴:</string></property></widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="comboX_1_Dup"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="l3"><property name="text"><string>Y轴:</string></property></widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QComboBox" name="comboY_1_Dup"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line"><property name="orientation"><enum>Qt::Vertical</enum></property></widget>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_RightData">
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="titleQ">
+              <property name="text">
+               <string>产量数据</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-weight: bold; color: #555;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="l4"><property name="text"><string>文件:</string></property></widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="comboFile_2"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="l5"><property name="text"><string>X轴:</string></property></widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="comboX_2"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="l6"><property name="text"><string>Y轴:</string></property></widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QComboBox" name="comboY_2"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupCalc">
+     <property name="title">
+      <string>计算设置</string>
+     </property>
+     <layout class="QGridLayout" name="gridCalc">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_TestType"><property name="text"><string>试井类型:</string></property></widget>
+      </item>
+      <item row="0" column="1">
+       <layout class="QHBoxLayout" name="hboxType">
+        <item><widget class="QRadioButton" name="radioDrawdown"><property name="text"><string>压降试井</string></property></widget></item>
+        <item><widget class="QRadioButton" name="radioBuildup"><property name="text"><string>压恢试井</string></property></widget></item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_Pi"><property name="text"><string>初始压力:</string></property></widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDoubleSpinBox" name="spinPi"><property name="maximum"><double>999999.99</double></property></widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_L"><property name="text"><string>L-Spacing:</string></property></widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDoubleSpinBox" name="spinL"><property name="singleStep"><double>0.1</double></property></widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QCheckBox" name="checkSmooth"><property name="text"><string>启用平滑</string></property></widget>
+      </item>
+      <item row="3" column="1">
+       <layout class="QHBoxLayout" name="hboxSmooth">
+        <item><widget class="QLabel" name="label_SmoothFactor"><property name="text"><string>平滑因子:</string></property></widget></item>
+        <item><widget class="QSpinBox" name="spinSmooth"/></item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupStyle">
+     <property name="title">
+      <string>样式设置</string>
+     </property>
+     <layout class="QVBoxLayout" name="layoutStyle">
+      <item>
+       <widget class="QStackedWidget" name="stackStyle">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="pageSingleStyle">
+         <layout class="QGridLayout" name="gridSingleStyle">
+          <item row="0" column="0"><widget class="QLabel" name="ls1"><property name="text"><string>点形状:</string></property></widget></item>
+          <item row="0" column="1"><widget class="QComboBox" name="comboShape_1"/></item>
+          <item row="1" column="0"><widget class="QLabel" name="ls2"><property name="text"><string>点颜色:</string></property></widget></item>
+          <item row="1" column="1"><widget class="QComboBox" name="comboPointColor_1"/></item>
+          <item row="2" column="0"><widget class="QLabel" name="ls3"><property name="text"><string>线类型:</string></property></widget></item>
+          <item row="2" column="1"><widget class="QComboBox" name="comboLineStyle_1"/></item>
+          <item row="3" column="0"><widget class="QLabel" name="ls4"><property name="text"><string>线颜色:</string></property></widget></item>
+          <item row="3" column="1"><widget class="QComboBox" name="comboLineColor_1"/></item>
+          <item row="4" column="0"><widget class="QLabel" name="ls5"><property name="text"><string>线宽度:</string></property></widget></item>
+          <item row="4" column="1"><widget class="QSpinBox" name="spinWidth_1"><property name="minimum"><number>1</number></property></widget></item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="pageDualStyle">
+         <layout class="QHBoxLayout" name="hboxDualStyle">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+          <item>
+           <layout class="QFormLayout" name="formLayout_LeftStyle">
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="titleS1">
+              <property name="text"><string>压力曲线样式</string></property>
+              <property name="styleSheet"><string notr="true">font-weight: bold; color: #555;</string></property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0"><widget class="QLabel" name="ld1"><property name="text"><string>点形状:</string></property></widget></item>
+            <item row="1" column="1"><widget class="QComboBox" name="comboShape_1_Dup"/></item>
+            <item row="2" column="0"><widget class="QLabel" name="ld2"><property name="text"><string>点颜色:</string></property></widget></item>
+            <item row="2" column="1"><widget class="QComboBox" name="comboPointColor_1_Dup"/></item>
+            <item row="3" column="0"><widget class="QLabel" name="ld3"><property name="text"><string>线类型:</string></property></widget></item>
+            <item row="3" column="1"><widget class="QComboBox" name="comboLineStyle_1_Dup"/></item>
+            <item row="4" column="0"><widget class="QLabel" name="ld4"><property name="text"><string>线颜色:</string></property></widget></item>
+            <item row="4" column="1"><widget class="QComboBox" name="comboLineColor_1_Dup"/></item>
+            <item row="5" column="0"><widget class="QLabel" name="ld5"><property name="text"><string>线宽度:</string></property></widget></item>
+            <item row="5" column="1"><widget class="QSpinBox" name="spinWidth_1_Dup"><property name="minimum"><number>1</number></property></widget></item>
+           </layout>
+          </item>
+          <item><widget class="Line" name="line2"><property name="orientation"><enum>Qt::Vertical</enum></property></widget></item>
+          <item>
+           <widget class="QStackedWidget" name="stackStyleRight">
+            <widget class="QWidget" name="pageProdStyle">
+             <layout class="QFormLayout" name="formLayout_Prod">
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="titleS2">
+                <property name="text"><string>产量曲线样式</string></property>
+                <property name="styleSheet"><string notr="true">font-weight: bold; color: #555;</string></property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0"><widget class="QLabel" name="lp0"><property name="text"><string>绘图类型:</string></property></widget></item>
+              <item row="1" column="1"><widget class="QComboBox" name="comboProdType"/></item>
+              <item row="2" column="0"><widget class="QLabel" name="label_ProdShape"><property name="text"><string>点形状:</string></property></widget></item>
+              <item row="2" column="1"><widget class="QComboBox" name="comboProdShape"/></item>
+              <item row="3" column="0"><widget class="QLabel" name="label_ProdPointColor"><property name="text"><string>点颜色:</string></property></widget></item>
+              <item row="3" column="1"><widget class="QComboBox" name="comboProdPointColor"/></item>
+              <item row="4" column="0"><widget class="QLabel" name="label_ProdLineStyle"><property name="text"><string>线类型:</string></property></widget></item>
+              <item row="4" column="1"><widget class="QComboBox" name="comboProdLineStyle"/></item>
+              <item row="5" column="0"><widget class="QLabel" name="label_ProdLineColor"><property name="text"><string>线颜色:</string></property></widget></item>
+              <item row="5" column="1"><widget class="QComboBox" name="comboProdLineColor"/></item>
+              <item row="6" column="0"><widget class="QLabel" name="label_ProdWidth"><property name="text"><string>线宽度:</string></property></widget></item>
+              <item row="6" column="1"><widget class="QSpinBox" name="spinProdWidth"><property name="minimum"><number>1</number></property></widget></item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="pageDerivStyle">
+             <layout class="QFormLayout" name="formLayout_Deriv">
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="titleS3">
+                <property name="text"><string>导数曲线样式</string></property>
+                <property name="styleSheet"><string notr="true">font-weight: bold; color: #555;</string></property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0"><widget class="QLabel" name="ldv1"><property name="text"><string>点形状:</string></property></widget></item>
+              <item row="1" column="1"><widget class="QComboBox" name="comboDerivShape"/></item>
+              <item row="2" column="0"><widget class="QLabel" name="ldv2"><property name="text"><string>点颜色:</string></property></widget></item>
+              <item row="2" column="1"><widget class="QComboBox" name="comboDerivPointColor"/></item>
+              <item row="3" column="0"><widget class="QLabel" name="ldv3"><property name="text"><string>线类型:</string></property></widget></item>
+              <item row="3" column="1"><widget class="QComboBox" name="comboDerivLineStyle"/></item>
+              <item row="4" column="0"><widget class="QLabel" name="ldv4"><property name="text"><string>线颜色:</string></property></widget></item>
+              <item row="4" column="1"><widget class="QComboBox" name="comboDerivLineColor"/></item>
+              <item row="5" column="0"><widget class="QLabel" name="ldv5"><property name="text"><string>线宽度:</string></property></widget></item>
+              <item row="5" column="1"><widget class="QSpinBox" name="spinDerivWidth"><property name="minimum"><number>1</number></property></widget></item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>PlottingDialog4</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>PlottingDialog4</receiver>
+   <slot>reject()</slot>
+  </connection>
+  <connection><sender>comboFile_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboFile_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboFile_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboFile_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboX_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboX_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboX_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboX_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboY_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboY_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboY_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboY_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboShape_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboShape_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboShape_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboShape_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboPointColor_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboPointColor_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboPointColor_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboPointColor_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboLineStyle_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboLineStyle_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboLineStyle_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboLineStyle_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboLineColor_1</sender><signal>currentIndexChanged(int)</signal><receiver>comboLineColor_1_Dup</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>comboLineColor_1_Dup</sender><signal>currentIndexChanged(int)</signal><receiver>comboLineColor_1</receiver><slot>setCurrentIndex(int)</slot></connection>
+  <connection><sender>spinWidth_1</sender><signal>valueChanged(int)</signal><receiver>spinWidth_1_Dup</receiver><slot>setValue(int)</slot></connection>
+  <connection><sender>spinWidth_1_Dup</sender><signal>valueChanged(int)</signal><receiver>spinWidth_1</receiver><slot>setValue(int)</slot></connection>
+ </connections>
+</ui>

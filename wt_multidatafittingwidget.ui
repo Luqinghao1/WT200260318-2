@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WT_MultidataFittingWidget</class>
+ <widget class="QWidget" name="WT_MultidataFittingWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1350</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>多数据试井拟合子页</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局背景纯白 */
+QWidget {
+    background-color: #ffffff;
+    color: #333333;
+    font-family: &quot;Microsoft YaHei&quot;;
+}
+
+/* 分裂器手柄：设为透明，完全消除分割线 */
+QSplitter::handle {
+    background-color: transparent;
+}
+
+/* 左侧面板：移除右边框，消除竖线 */
+QWidget#leftPanelWidget {
+    background-color: #ffffff;
+    border: none;
+}
+
+/* 按钮通用样式 */
+QPushButton {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+QPushButton:hover {
+    background-color: #f0f0f0;
+    border-color: #0078d7;
+}
+QPushButton:pressed {
+    background-color: #e0e0e0;
+}
+
+/* 标题栏样式 */
+QLabel#label_1, QLabel#label_2, QLabel#label_3 {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 3px;
+    margin-top: 5px;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_Main">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="handleWidth">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="leftPanelWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_Left">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_1">
+         <property name="text">
+          <string>1. 多数据管理</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_1">
+         <item>
+          <widget class="QPushButton" name="btnAddData">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>1</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>加载观测数据</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_modelSelect">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>1</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>当前: 压裂水平井模型</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableDataGroups">
+         <property name="maximumHeight">
+          <number>180</number>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid #e0e0e0;
+background-color: white;</string>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>2. 参数设置</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSelectParams">
+         <property name="text">
+          <string>参数选择与配置...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableParams">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid #e0e0e0;
+background-color: white;</string>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_ParamTools">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnImportModel">
+           <property name="text">
+            <string>理论模型更新</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>3. 拟合控制</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSampling">
+         <property name="text">
+          <string>数据抽样设置</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboFitMode">
+         <item>
+          <property name="text">
+           <string>方法一：最小二乘法</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>方法二：惩罚函数法</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_Error">
+         <property name="text">
+          <string>误差(MSE): 0.000</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Actions">
+         <item>
+          <widget class="QPushButton" name="btnRunFit">
+           <property name="styleSheet">
+            <string notr="true">background-color: #dff0d8;
+border: 1px solid #d6e9c6; padding: 6px; font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>自动拟合</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnStop">
+           <property name="styleSheet">
+            <string notr="true">background-color: #f2dede;
+border: 1px solid #ebccd1; padding: 6px;</string>
+           </property>
+           <property name="text">
+            <string>停止</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Exports">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnSave">
+           <property name="text">
+            <string>保存结果</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="plotContainer" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_Plot">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
